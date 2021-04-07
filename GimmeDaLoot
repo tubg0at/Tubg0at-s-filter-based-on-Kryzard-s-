@@ -10,19 +10,14 @@ ItemDisplay[GOLD<1000 (CLVL>17 AND CLVL<80)]:
 ItemDisplay[GOLD<5000 CLVL>79]:
 
 
-//TARGET FARMING (can be adjusted to show nonmagical bases you want to farm)
+//TARGET FARMING (can be adjusted to show nonmagical bases you want to farm)--I turned off my own, but talk to me on stream if you want to farm bases)
 //armor
-ItemDisplay[(utp) !INF !ETH NMAG (SOCK=0 OR SOCK=3)]: %DOT-D6%%NAME%{%NAME%}
+//ItemDisplay[(utp) !INF !ETH NMAG (SOCK=0 OR SOCK=3)]: %DOT-D6%%NAME%{%NAME%}
 //Axes
-ItemDisplay[(7gi OR 7gd) !INF ETH NMAG !RW (SOCK=0 OR SOCK=5)]: %DOT-D6%%NAME%{%NAME%}
-ItemDisplay[(7bt OR 7b7) !INF ETH NMAG SUP SOCK=5]: %DOT-D6%%NAME%{%NAME%}
+//ItemDisplay[(7gi OR 7gd) !INF ETH NMAG (SOCK=0 OR SOCK=5)]: %DOT-D6%%NAME%{%NAME%}
+//ItemDisplay[(7bt OR 7b7) !INF ETH NMAG SUP SOCK=5]: %DOT-D6%%NAME%{%NAME%}
 
-//Hide all non magical items over lvl 50
 
-ItemDisplay[NMAG WEAPON CLVL>50]: %CONTINUE%
-ItemDisplay[NMAG ARMOR CLVL>50]: %CONTINUE%
-ItemDisplay[NMAG ETH WEAPON CLVL>50]: %CONTINUE%
-ItemDisplay[NMAG ETH ARMOR CLVL>50]: %CONTINUE%
 
 
 
@@ -34,7 +29,8 @@ ItemDisplay[MAG]: %BLUE%%NAME%%CONTINUE%
 ItemDisplay[(ARMOR OR WEAPON) NMAG !ETH SOCK=0]: %WHITE%%NAME%%CONTINUE%
 ItemDisplay[(ARMOR OR WEAPON) NMAG (SOCK>0 OR ETH)]: %GRAY%%NAME%%CONTINUE%
 ItemDisplay[CRAFT]: %ORANGE%%NAME%%CONTINUE%
-
+//Show me that item is ethereal
+ItemDisplay[ETH]: %GRAY%[%WHITE%eth%GRAY%] %NAME%%CONTINUE%
 
 //Show me names of items in gambling screen
 ItemDisplay[(WEAPON OR ARMOR) NMAG !ID]: %NAME%
@@ -94,7 +90,7 @@ ItemDisplay[GEM<3 DIFF>0]:
 ItemDisplay[GEM<4 DIFF>1]:
 //amethysts
 ItemDisplay[GEMTYPE=1 GEM<4]: %PURPLE%AMEFISTS %ORANGE%[%PURPLE%*%ORANGE%]
-ItemDisplay[GEMTYPE=1 GEM>3]: %PURPLE%amefists %ORANGE%[%GREEN%O%ORANGE%]%CONTINUE%
+ItemDisplay[GEMTYPE=1 GEM>3]: %PURPLE%amefists %ORANGE%[%PURPLE%O%ORANGE%]%CONTINUE%
 //diamonds
 ItemDisplay[GEMTYPE=2 GEM<4]: %White%DEEMONDS %ORANGE%[%WHITE%*%ORANGE%]
 ItemDisplay[GEMTYPE=2 GEM>3]: %White%deemonds %ORANGE%[%WHITE%O%ORANGE%]%CONTINUE%
@@ -120,6 +116,8 @@ ItemDisplay[(RUNE<15 OR RUNE=16 OR RUNE=17) (CLVL=1 OR CLVL>79)]: %ORANGE%%RUNEN
 ItemDisplay[RUNE=15 OR RUNE=18 OR RUNE=19]: %PX-62%%TAN%*  %ORANGE%%RUNENAME% Rune %GRAY%[%WHITE%%RUNENUM%%GRAY%]%TAN%  *%CONTINUE%
 ItemDisplay[RUNE>19 AND RUNE<26]: %DOT-62%%RED%*     %ORANGE%%RUNENAME% Rune %GRAY%[%RED%%RUNENUM%%GRAY%]%RED%     *%CONTINUE%
 ItemDisplay[RUNE>25]: %BORDER-62%%GREEN%*%PURPLE%*%RED%*          %ORANGE%%RUNENAME% Rune %GRAY%[%GREEN%%RUNENUM%%GRAY%]%RED%          *%PURPLE%*%GREEN%*%CONTINUE%
+ItemDisplay[r13s]: x%NAME%x
+ItemDisplay[r09s]: x%NAME%x
 
 //All Charms
 ItemDisplay[cm2 MAG !ID]: %TAN%*%BLUE% %NAME% %TAN%*
@@ -295,7 +293,7 @@ ItemDisplay[(amu OR rin OR uar OR ci3 OR 7qr OR uth OR paf) SET !ID]: %MAP-84%%P
 
 //Uniques and Sets worth notifying
 //Armors
-ItemDisplay[(xcl OR chn OR uul OR xng OR xui OR spl OR pac OR xmg OR xsk OR xml OR xlb OR xpl OR xap OR xld OR xrs OR gth OR aar OR BELT OR skp OR xhl OR xrn OR vbt OR xmb OR uvb OR umb OR lgl OR vgl OR mgl OR tgl OR hgl OR xlg OR xvg OR xtg OR xhg OR ush OR upk OR uml OR xts OR xrg OR xuc OR tow OR kit OR gts) UNI !ID]: %PX-68%%NAME%
+ItemDisplay[(xcl OR chn OR uul OR xng OR xui OR spl OR pac OR xmg OR xml OR xlb OR xpl OR xap OR xld OR xrs OR gth OR aar OR BELT OR skp OR xhl OR xrn OR vbt OR xmb OR uvb OR umb OR lgl OR vgl OR mgl OR tgl OR hgl OR xlg OR xvg OR xtg OR xhg OR ush OR upk OR uml OR xts OR xrg OR xuc OR tow OR kit OR gts) UNI !ID]: %PX-68%%NAME%
 //Weapons
 ItemDisplay[((7m7 OR 9cl OR mau OR 7ls OR 9ls OR 7br OR 7sr OR 7p7 OR 9ba OR 7ga OR 7wa OR 7gi OR 7pa OR 8ls OR 72a OR 7o7 OR 9yw OR 9fc OR 7bw OR 9kr OR amb OR 7sc OR 7mp OR 6sw OR 6l7 OR 8hx OR 8rx OR dgr OR 7dg OR 7bl OR 9ma OR 9wh OR 9gm OR 7s8 OR 7wc OR 9ws OR 6cs OR 7b7 OR 7gs OR 9sb) OR (ELT (WP5 OR WP6)) OR 9bw OR ywn OR 7wb OR 7sp) UNI !ID]: %PX-68%%NAME%
 //Sets
@@ -342,15 +340,19 @@ ItemDisplay[WAND !UNI CHSK82>0]: %RED%***%GREEN%***   %NAME%   %GREEN%***%RED%**
 ItemDisplay[EQ7 (MAG OR RARE) !ID]: %NAME%
 //ItemDisplay[ci3 NMAG !ETH SOCK=0]: %NAME% %YELLOW%[%GRAY%imbue%YELLOW%]%WHITE%{%TAN%Note%WHITE%: You can %YELLOW%imbue %WHITE%it using Charsi quest}
 
+//Money magic
+ItemDisplay[WP12 (MAG OR RARE) !ID]: $%NAME%$
 //Rare Gloves, Belts and Boots
+
+//RARES **can turn on if you want to identify. Remove //
 ItemDisplay[(GLOVES OR BOOTS OR BELT) RARE !ID]: //%NAME%
 
-//Rare ETH weapons 
-ItemDisplay[WEAPON !(hax OR 9ha OR 7ha OR axe OR 9ax OR 7ax OR clb OR 9cl OR 7cl OR spc OR 9sp OR 7sp OR mac OR 9ma OR 7ma OR mst OR 9mt OR 7mt OR ssd OR 9ss OR 7ss OR scm OR 9sm OR 7sm OR sbr OR 9sb OR 7sb OR flc OR 9fc OR 7fc OR wsd OR 9wd OR 7wd OR dgr OR 9dg OR 7dg OR dir OR 9di OR 7di OR bld OR 9bl OR 7bl OR STAFF OR ktr OR wrb OR axf OR ces OR clw OR btl OR skr OR 9ar OR 9wb OR 9xf) RARE ETH !ID]: %NAME%
+//Rare ETH weapons (can turn this on and adjust)
+//ItemDisplay[WEAPON !(hax OR 9ha OR 7ha OR axe OR 9ax OR 7ax OR clb OR 9cl OR 7cl OR spc OR 9sp OR 7sp OR mac OR 9ma OR 7ma OR mst OR 9mt OR 7mt OR ssd OR 9ss OR 7ss OR scm OR 9sm OR 7sm OR sbr OR 9sb OR 7sb OR flc OR 9fc OR 7fc OR wsd OR 9wd OR 7wd OR dgr OR 9dg OR 7dg OR dir OR 9di OR 7di OR bld OR 9bl OR 7bl OR STAFF OR ktr OR wrb OR axf OR ces OR clw OR btl OR skr OR 9ar OR 9wb OR 9xf) RARE ETH !ID]: %NAME%
 
 //Craftables (can remove // if you're interested in crafting those bases)
 //ItemDisplay[GLOVES ((EXC OR ELT) !(utg OR uhg)) MAG !ETH !ID]: %GRAY%* %BLUE%%NAME% %GRAY%*
-ItemDisplay[WEAPON !(tri OR 9tr OR 7tr OR 9cs OR 7cs OR ces OR mau OR 9m9 OR 7m7 OR hax OR 9ha OR 7ha OR axe OR 9ax OR 7ax OR clb OR 9cl OR 7cl OR spc OR 9sp OR 7sp OR mac OR 9ma OR 7ma OR mst OR 9mt OR 7mt OR ssd OR 9ss OR 7ss OR scm OR 9sm OR 7sm OR sbr OR 9sb OR 7sb OR flc OR 9fc OR 7fc OR wsd OR 9wd OR 7wd OR dgr OR 9dg OR 7dg OR dir OR 9di OR 7di OR bld OR 9bl OR 7bl OR STAFF OR ktr OR wrb OR axf OR ces OR clw OR btl OR skr OR 9ar OR 9wb OR 9xf) MAG ETH !ID]: %NAME%
+//ItemDisplay[WEAPON (7bt OR 7h7 OR 9h9 OR hal OR gix OR 9gi OR 7gi OR pik OR 9p9 OR 7p7 OR gma OR 9gm OR 7gm) MAG ETH !ID]: %NAME%
 //ItemDisplay[(bhm OR xh9 OR uh9) MAG !ID]: %NAME%
 //ItemDisplay[(bsh OR xsh OR ush) MAG !ID]: %NAME%
 //ItemDisplay[(lwb OR 8lw OR 6lw) MAG !ID]: %NAME%
@@ -436,7 +438,7 @@ ItemDisplay[(AXE OR SWORD OR (whm OR mau OR gma OR 9wh OR 9m9 OR 9gm OR 7wh OR 7
 
 
 
-//Notes for crafting
+//Notes for crafting -----use to show ammy//rings by putting in %name% after :
 ItemDisplay[GLOVES MAG ID]: %NAME%{%WHITE%HP: Perf %BLUE%O%ORANGE%, Ort %WHITE%| S: Perf %GREEN%O%ORANGE%, Ral%NL%%WHITE%B: Perf %RED%O%ORANGE%, Nef%WHITE% | C: Perf %PURPLE%O%ORANGE%, Ort%NL%Craft Recipes: %BLUE%Jewel,}
 ItemDisplay[BOOTS MAG ID]: %NAME%{%WHITE%HP: Perf %BLUE%O%ORANGE%, Ral %WHITE%| S: Perf %GREEN%O%ORANGE%, Ort%NL%%WHITE%B: Perf %RED%O%ORANGE%, Eth%WHITE% | C: Perf %PURPLE%O%ORANGE%, Thul%NL%Craft Recipes: %BLUE%Jewel,}
 ItemDisplay[BELT MAG ID]: %NAME%{%WHITE%HP: Perf %BLUE%O%ORANGE%, Tal %WHITE%| S: Perf %GREEN%O%ORANGE%, Tal%NL%%WHITE%B: Perf %RED%O%ORANGE%, Tal%WHITE% | C: Perf %PURPLE%O%ORANGE%, Ith%NL%Craft Recipes: %BLUE%Jewel,}
@@ -445,8 +447,8 @@ ItemDisplay[HELM MAG ID]: %NAME%{%WHITE%HP: Perf %BLUE%O%ORANGE%, Ith %WHITE%| S
 ItemDisplay[CHEST MAG ID]: %NAME%{%WHITE%HP: Perf %BLUE%O%ORANGE%, Nef %WHITE%| S: Perf %GREEN%O%ORANGE%, Eth%NL%%WHITE%B: Perf %RED%O%ORANGE%, Thul%WHITE% | C: Perf %PURPLE%O%ORANGE%, Tal%NL%Craft Recipes: %BLUE%Jewel,}
 ItemDisplay[WEAPON !(BOW OR XBOW) MAG ID]: %NAME%{%WHITE%HP: Perf %BLUE%O%ORANGE%, Tir %WHITE%| S: %GRAY%x/Bows only%NL%%WHITE%B: Perf %RED%O%ORANGE%, Ort%WHITE% | C: Perf %PURPLE%O%ORANGE%, Tir%NL%Craft Recipes: %BLUE%Jewel,}
 ItemDisplay[(BOW OR XBOW) MAG ID]: %NAME%{%WHITE%HP: Perf %BLUE%O%ORANGE%, Tir %WHITE%| S: Perf %GREEN%O%ORANGE%, Sol%NL%%WHITE%B: Perf %RED%O%ORANGE%, Ort%WHITE% | C: Perf %PURPLE%O%ORANGE%, Tir%NL%Craft Recipes: %BLUE%Jewel,}
-ItemDisplay[amu MAG]:// %NAME%{%WHITE%HP: Perf %BLUE%O%ORANGE%, Thul %WHITE%| S: Perf %GREEN%O%ORANGE%, Thul%NL%%WHITE%B: Perf %RED%O%ORANGE%, Amn%WHITE% | C: Perf %PURPLE%O%ORANGE%, Ral%NL%Craft Recipes: %BLUE%Jewel,}
-ItemDisplay[rin MAG]: %NAME%{%WHITE%HP: Perf %BLUE%O%ORANGE%, Amn %WHITE%| S: Perf %GREEN%O%ORANGE%, Amn%NL%%WHITE%B: Perf %RED%O%ORANGE%, Sol%WHITE% | C: Perf %PURPLE%O%ORANGE%, Amn%NL%Craft Recipes: %BLUE%Jewel,}
+ItemDisplay[amu MAG]: {%WHITE%HP: Perf %BLUE%O%ORANGE%, Thul %WHITE%| S: Perf %GREEN%O%ORANGE%, Thul%NL%%WHITE%B: Perf %RED%O%ORANGE%, Amn%WHITE% | C: Perf %PURPLE%O%ORANGE%, Ral%NL%Craft Recipes: %BLUE%Jewel,}
+ItemDisplay[rin MAG]: {%WHITE%HP: Perf %BLUE%O%ORANGE%, Amn %WHITE%| S: Perf %GREEN%O%ORANGE%, Amn%NL%%WHITE%B: Perf %RED%O%ORANGE%, Sol%WHITE% | C: Perf %PURPLE%O%ORANGE%, Amn%NL%Craft Recipes: %BLUE%Jewel,}
 
 
 //Notes for upgrading
@@ -528,6 +530,12 @@ Uber %RED%Tristram%NL%%TAN%Note%WHITE%: Cube %ORANGE%ANY %WHITE%3 Organs}
 ItemDisplay[bey]: %PX-9D%%NAME%{%WHITE%to open %GRAY%Uber %RED%Tristram%NL%%TAN%Note%WHITE%: Cube %ORANGE%ANY %WHITE%3 Organs}
 ItemDisplay[dhn]: %PX-9D%%NAME%{%WHITE%to open %GRAY%Uber %RED%Tristram%NL%%TAN%Note%WHITE%: Cube %ORANGE%ANY %WHITE%3 Organs}
 
+//Hide all non magical items over lvl 50
+
+ItemDisplay[NMAG WEAPON]: %CONTINUE%
+ItemDisplay[NMAG ARMOR]: %CONTINUE%
+ItemDisplay[NMAG ETH WEAPON]: %CONTINUE%
+ItemDisplay[NMAG ETH ARMOR]: %CONTINUE%
 
 
 //HIDE EVERYTHING ELSE
